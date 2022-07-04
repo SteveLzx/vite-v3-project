@@ -1,0 +1,63 @@
+/* 主题色 */
+$--color-primary: #409EFF;
+/* 主题色高亮 */
+$--color-light-primary: #79BBFF;
+
+
+/* 辅助色 */
+/* success */
+$--color-success: #67C23A;
+/* success高亮 */
+$--color-light-success: #81C85E;
+
+/* warning */
+$--color-warning: #E6A23C;
+/* warning高亮 */
+$--color-light-warning: #EBBB74;
+
+/* danger */
+$--color-danger: #F56C6C !default;
+/* danger高亮 */
+$--color-light-danger: #F89898;
+
+
+/* 文字颜色 */
+/* 主要文字颜色 */
+$--color-text: #303133;
+/* 常规文字颜色 */
+$--color-default-text: #606266;
+/* 次要文字颜色 */
+$--color-light_text: #909399;
+/* 占位文字颜色 */
+$--color-placeholder: #C0C4CC;
+/* 提示语颜色 */
+$--color-warning-text: #FF0000;
+
+/* 一级边框/分割线 */
+$--color-border-split: #DCDFE6;
+
+/* 灰色背景 */
+$--bg-grey: #F9FAFB;
+/* 表单列表点击背景色 */
+$--bg-table-current: #F2F7FF;
+
+
+/* 侧边栏导航 */
+/* 默认状态 */
+$--color-menu-bg:  #263237;
+$--color-menu-text:  #98A3AB;
+
+/* 一级菜单展开状态 */
+$--first-menu-bg:  #1F292D;
+$--first-menu-text:  #98A3AB;
+/* 二级菜单展开状态 */
+$--seconds-menu-bg:  #202e35;
+$--seconds-menu-text:  #98A3AB;
+
+/* 鼠标悬浮 */
+$--hover-menu-bg:  #1F292D;
+$--hover-menu-text:  #fff;
+
+/* 鼠标点击 */
+$--click-menu-bg:  #409EFF;
+$--click-menu-text:  #fff;
