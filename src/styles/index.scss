@@ -15,7 +15,6 @@ html, body {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
   height: 100%;
   a {
@@ -33,4 +32,39 @@ html, body {
     border-radius: 4px;
     color: #304455;
   }  
+}
+
+/* 整个滚动条 */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+// /* 滚动条有滑块的轨道部分 */
+::-webkit-scrollbar-track-piece {
+  border-radius: 16px;
+}
+
+/* 滚动条滑块(竖向:vertical 横向:horizontal) */
+::-webkit-scrollbar-thumb {
+  height: 8px;
+  background-color: #DCDFE6;
+  -webkit-border-radius: 6px;
+  outline-offset: -2px;
+  filter: alpha(opacity=50);
+  -moz-opacity: 0.5;
+  -khtml-opacity: 0.5;
+}
+
+/* 滚动条滑块hover */
+::-webkit-scrollbar-thumb:hover {
+  height: 8px;
+  background-color: #C0C4CC;
+  -webkit-border-radius: 6px;
+}
+
+/* 同时有垂直和水平滚动条时交汇的部分 */
+::-webkit-scrollbar-corner {
+  display: block;
+  /* 修复交汇时出现的白块 */
 }

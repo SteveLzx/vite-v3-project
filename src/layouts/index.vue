@@ -2,6 +2,8 @@
 import AppMian from './components/AppMain.vue'
 import Navbar from './components/Navbar.vue'
 import AppAside from './components/AppAside.vue'
+import Tags from './components/Tags.vue'
+
 </script>
 <template>
   <el-container class="cus_container">
@@ -14,6 +16,7 @@ import AppAside from './components/AppAside.vue'
     <el-container>
       <el-header class="cus_header">
         <Navbar />
+        <Tags />
       </el-header>
       <el-main>
         <AppMian />
@@ -31,5 +34,6 @@ import AppAside from './components/AppAside.vue'
 }
 .cus_header {
   padding: 0;
+  height: 80px;
 }
 </style>
