@@ -43,21 +43,21 @@ const moveToView = (tag: any) => {
   const tagOffsetWidth = tag.offsetWidth
   // console.log('tagOffsetWidth', tagOffsetWidth)  
   if (bodyWidth < outerWidth) {
-    // 1.不会出现滚动条
     tagBodyLeft.value = 0;
-  } else if (tagOffsetLeft < -tagBodyLeft.value) {
-    // 2.标签再可视区左侧
-    // console.log('标签再可视区左侧')
-    tagBodyLeft.value = -tagOffsetLeft
-  } else if (tagOffsetLeft > -tagBodyLeft.value && tagOffsetLeft + tagOffsetWidth < -tagBodyLeft.value + outerWidth) {
-    // 3.标签再可视区
-    // console.log('标签再可视区')
-    tagBodyLeft.value = Math.min(0, outerWidth - tagOffsetWidth - tagOffsetLeft)
   } else {
-    // 4.标签再可视区右侧
-    // console.log('标签再可视区右侧')
-    tagBodyLeft.value = -(tagOffsetLeft - (outerWidth - tagOffsetWidth))
+    // console.log('tagBodyLeft', tagBodyLeft.value)
+    // console.log('outerWidth / 2', outerWidth / 2)
+    const halfOuterWidth = outerWidth / 2
+    if (halfOuterWidth > tagOffsetLeft) {
+      tagBodyLeft.value = 0;
+    } else {
+      // 获取最大滚动距离
+      const maxScollWidth = bodyWidth - outerWidth
+      const maybeScollWidth = tagOffsetWidth / 2 + tagOffsetLeft - halfOuterWidth
+      tagBodyLeft.value = -(Math.min(maxScollWidth, maybeScollWidth));
+    }    
   }
+  // console.log('tagBodyLeft.value', tagBodyLeft.value)
 }
 
 // 左点击
@@ -118,6 +118,12 @@ const tags = ref([
   { fullPath: '/home', path: '/home22', meta: { title: 'page首页22' } },
   { fullPath: '/home', path: '/home23', meta: { title: 'page首页23' } },
   { fullPath: '/home', path: '/home24', meta: { title: 'page首页24' } },
+  { fullPath: '/home', path: '/home25', meta: { title: 'page首页25' } },
+  { fullPath: '/home', path: '/home26', meta: { title: 'page首页26' } },
+  { fullPath: '/home', path: '/home27', meta: { title: 'page首页27' } },
+  { fullPath: '/home', path: '/home28', meta: { title: 'page首页28' } },
+  { fullPath: '/home', path: '/home29', meta: { title: 'page首页29' } },
+  { fullPath: '/home', path: '/home30', meta: { title: 'page首页30' } },
 ])
 
 </script>
@@ -125,19 +131,21 @@ const tags = ref([
   <div class="flex border padding-2-4">
     <el-button class="mr-4" type="primary" plain :icon="ArrowLeft" @click="handleToLeft"></el-button>
     <div class="scroll_outer" ref="scrollOuterRef">
-      <div class="scroll_body" :style="{ left: tagBodyLeft + 'px' }" ref="scrollBodyRef">
-        <el-tag
-          ref="tagsRef"
-          class="cus_tag"
-          v-for="tag in tags"
-          :key="tag.name"
-          :type="tag.path !== currentRoute!.path ? 'info' : ''"
-          effect="plain"
-          closable
-          :data-router-item="tag"
-          @click="handleTagChange(tag)"
-        >{{ tag.meta.title }}</el-tag>           
-      </div>
+      <TransitionGroup name="list">
+        <div class="scroll_body" key="list" :style="{ left: tagBodyLeft + 'px' }" ref="scrollBodyRef">
+            <el-tag
+              ref="tagsRef"
+              class="cus_tag"
+              v-for="tag in tags"
+              :key="tag.name"
+              :type="tag.path !== currentRoute!.path ? 'info' : ''"
+              effect="plain"
+              closable
+              :data-router-item="tag"
+              @click="handleTagChange(tag)"
+            >{{ tag.meta.title }}</el-tag>           
+        </div>
+      </TransitionGroup>
     </div>
     <el-button class="ml-4" type="primary" plain  @click="handleToRight"><el-icon><ArrowRight /></el-icon></el-button>
     <el-dropdown>
@@ -187,5 +195,9 @@ const tags = ref([
       overflow: visible;
       white-space: nowrap;
     }
+  }
+
+  .list-move {
+    transition: all 0.5s ease;
   }
 </style>

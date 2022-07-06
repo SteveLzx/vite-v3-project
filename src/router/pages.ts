@@ -107,7 +107,31 @@ export default [
       {
         path: 'home24',
         component: () => import('views/home.vue')
-      }
+      },
+      {
+        path: 'home25',
+        component: () => import('views/home.vue')
+      },
+      {
+        path: 'home26',
+        component: () => import('views/home.vue')
+      },
+      {
+        path: 'home27',
+        component: () => import('views/home.vue')
+      },
+      {
+        path: 'home28',
+        component: () => import('views/home.vue')
+      },
+      {
+        path: 'home29',
+        component: () => import('views/home.vue')
+      },
+      {
+        path: 'home30',
+        component: () => import('views/home.vue')
+      }            
     ]
   },
 ]
