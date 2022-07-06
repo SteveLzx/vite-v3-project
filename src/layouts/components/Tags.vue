@@ -2,6 +2,7 @@
 import { ArrowLeft,  ArrowRight, CircleClose } from '@element-plus/icons-vue'
 import { ref, onMounted, nextTick, watch } from 'vue'
 import { useRouter } from 'vue-router'
+// import { routes } from '@/router'
 
 // 获取当前所有路由数组
 const router = useRouter()

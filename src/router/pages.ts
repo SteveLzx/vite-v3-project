@@ -1,4 +1,5 @@
 import Layout from 'layouts/index.vue'
+import AppMain from 'layouts/components/AppMain.vue'
 
 export default [
   { 
@@ -134,4 +135,50 @@ export default [
       }            
     ]
   },
+  {
+    path: '/goods', 
+    redirect: '/goods/local/list',
+    component: Layout,
+    meta: {
+      title: '商品管理'
+    },    
+    children: [
+      {
+        path: 'local',
+        component: AppMain,
+        meta: {
+          title: '本地商品管理',
+        },
+        children: [
+          {
+            path: 'list',
+            name: 'GoodsLocalList',
+            meta: {
+              title: '本地商品列表',
+              keepAlive: true
+            },
+            component: () => import('views/goods/local/list.vue')
+          },
+          {
+            path: 'create',
+            name: 'GoodsLocalCreate',
+            meta: {
+              title: '新增本地商品',
+              keepAlive: true
+            },
+            component: () => import('views/goods/local/create.vue')
+          },
+          {
+            path: 'edit',
+            name: 'GoodsLocalEdit',
+            meta: {
+              title: '编辑本地商品',
+              keepAlive: true
+            },
+            component: () => import('views/goods/local/edit.vue')
+          },                         
+        ]
+      },      
+    ]
+  }
 ]

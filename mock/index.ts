@@ -9,42 +9,41 @@ const userInfo = mock({
   ]
 })
 
+const goodsList = mock({
+  'total': 10,
+  'data|10': [
+    () => Random.cname()
+  ]
+})
+
 export default [
   {
-    url: '/api/get',
+    url: '/api/getGoodsList',
     method: 'get',
     response: ({ query }) => {
       return {
-        code: 0,
-        data: userInfo,
+        code: 200,
+        body: goodsList,
       }
     },
   },
   {
-    url: '/api/post',
+    url: '/api/login',
     method: 'post',
-    timeout: 2000,
+    timeout: 1000,
     response: {
-      code: 0,
-      data: {
-        name: 'vben',
+      code: 200,
+      body: {
+        name: Random.cname(),
       },
     },
   },
   {
-    url: '/api/text',
+    url: '/api/userInfo',
     method: 'post',
-    rawResponse: async (req, res) => {
-      let reqbody = ''
-      await new Promise((resolve) => {
-        req.on('data', (chunk) => {
-          reqbody += chunk
-        })
-        req.on('end', () => resolve(undefined))
-      })
-      res.setHeader('Content-Type', 'text/plain')
-      res.statusCode = 200
-      res.end(`hello, ${reqbody}`)
+    response: {
+      code: 0,
+      message: '参数错误',
     },
   },
 ] as MockMethod[]

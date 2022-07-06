@@ -10,5 +10,3 @@ import ElementPlus from 'element-plus'
 import 'styles/index.scss'
 
 createApp(App).use(router).use(store).use(ElementPlus).mount('#app')
-
-// createApp(App).mount('#app')

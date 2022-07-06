@@ -1,8 +1,19 @@
 <script setup lang="ts">
-import AppMian from './components/AppMain.vue'
+import { ref, watch } from 'vue'
+import { useRoute } from 'vue-router'
 import Navbar from './components/Navbar.vue'
 import AppAside from './components/AppAside.vue'
 import Tags from './components/Tags.vue'
+
+// 缓存目录
+const includeRouterList = ref<string[]>([])
+const route = useRoute()
+watch(()=> route, (newVal, oldVal)=> {
+  console.log(newVal.meta)
+  if (newVal.meta.keepAlive && includeRouterList.value.indexOf(newVal!.name) === -1) {
+    includeRouterList.value.push(newVal!.name)
+  }
+}, { deep: true })
 
 </script>
 <template>
@@ -19,7 +30,11 @@ import Tags from './components/Tags.vue'
         <Tags />
       </el-header>
       <el-main>
-        <AppMian />
+        <router-view v-slot="{ Component }">
+          <keep-alive :include="includeRouterList">
+            <component :is="Component" />
+          </keep-alive>
+        </router-view>
       </el-main>
     </el-container>
   </el-container>
@@ -34,6 +49,6 @@ import Tags from './components/Tags.vue'
 }
 .cus_header {
   padding: 0;
-  height: 80px;
+  height: 98px;
 }
 </style>

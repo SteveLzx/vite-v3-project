@@ -90,10 +90,12 @@ export default defineConfig({
   ],
   resolve: {
     alias: {
+      '@': resolve(__dirname, 'src'),
       comps: resolve(__dirname, 'src/components'),
       views: resolve(__dirname, 'src/views'),
       styles: resolve(__dirname, 'src/styles'),
       layouts: resolve(__dirname, 'src/layouts'),
+      utils: resolve(__dirname, 'src/utils'),
       '/img': './src/assets/image',
     }
   },
