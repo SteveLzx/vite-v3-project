@@ -1,8 +1,10 @@
-import copy from "./modules/copy"
+import copy from './modules/copy'
+import longpress from './modules/longpress'
 
 // 创建自定义指令数组
 const directivesObj: any = {
-  copy
+  copy,
+  longpress
 }
 
 const directives = {

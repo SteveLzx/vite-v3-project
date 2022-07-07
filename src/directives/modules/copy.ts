@@ -1,19 +1,6 @@
-import { ElMessage } from 'element-plus'
-
 // 赋值指令
-interface HTMLElementExtend extends HTMLElement {
-  $value?: any
-  handle?: any
-}
-
-interface BindingExtend {
-  instance: any
-  value: any
-  oldValue: any
-  arg: any
-  modifiers: any
-  dir: any
-}
+import { ElMessage } from 'element-plus'
+import { HTMLElementExtend, BindingExtend } from '../types'
 
 const copy = {
   mounted(el: HTMLElementExtend, binding: BindingExtend) {
@@ -36,7 +23,7 @@ const copy = {
           })(el.$value)
           document.execCommand('Copy')
         }
-        ElMessage.warning('复制成功')
+        ElMessage.success('复制成功')
       }
     }
     el.addEventListener('click', el.handle)
