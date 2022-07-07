@@ -1,7 +1,7 @@
-// 防抖自定义指令
+// 节流自定义指令
 import { HTMLElementExtend, BindingExtend } from '../types'
 
-const debounce = {
+const throttle = {
   mounted(el: HTMLElementExtend, binding: BindingExtend) {
     /**
      * @params func--执行事件
@@ -21,11 +21,11 @@ const debounce = {
     let timer: any = null
     // 定义执行函数
     el.handle = ()=> {
-      if (timer !== null) {
-        clearTimeout(timer)
+      if (timer !== null) return
+      timer = setTimeout(() => {
+        func()
         timer = null
-      }
-      timer = setTimeout(() => func(), wait)
+      }, wait)
     }
 
     // 事件监听
@@ -36,4 +36,4 @@ const debounce = {
   }
 }
 
-export default debounce
+export default throttle

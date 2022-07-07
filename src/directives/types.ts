@@ -1,7 +1,8 @@
 
 export interface HTMLElementExtend extends HTMLElement {
-  $value?: any
-  handle?: any
+  $value: any
+  handle: any
+  $type: string
 }
 
 export interface BindingExtend {

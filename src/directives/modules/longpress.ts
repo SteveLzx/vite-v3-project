@@ -35,6 +35,7 @@ const longpress = {
     const handler = (e: any) => {
       value(e)
     }
+    el.handle = handler
 
     // 添加事件监听器
     el.addEventListener('mousedown', start)
