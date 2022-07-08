@@ -3,6 +3,8 @@ import longpress from './modules/longpress'
 import debounce from './modules/debounce'
 import throttle from './modules/throttle'
 import watermarker from './modules/watermarker'
+import draggable from './modules/draggable'
+import emoji from './modules/emoji'
 
 // 创建自定义指令数组
 const directivesObj: any = {
@@ -10,7 +12,9 @@ const directivesObj: any = {
   longpress,
   debounce,
   throttle,
-  watermarker
+  watermarker,
+  draggable,
+  emoji
 }
 
 const directives = {

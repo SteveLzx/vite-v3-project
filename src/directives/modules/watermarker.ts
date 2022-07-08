@@ -9,7 +9,7 @@ const watermarker = {
     const canvasNode = document.createElement('canvas')
     el.appendChild(canvasNode)
     canvasNode.width = 200
-    canvasNode.height = 200
+    canvasNode.height = 150
     canvasNode.style.display = 'none'
     const canvasNodes = canvasNode.getContext('2d')
     if (canvasNodes !== null) {

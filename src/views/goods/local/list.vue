@@ -7,13 +7,19 @@
   <button v-throttle="[handleDebounce, 'click', 2000, true]">节流点击</button>
 
   <div class="water-marker">
-    <div v-watermarker="{text:'卡洛背心 - 版权所有', color:'rgba(180, 180, 180, 0.8)'}">
+    <div v-watermarker="{text:'zzz - 版权所有', color:'rgba(180, 180, 180, 0.8)'}">
       <div class="water-marker-item">测试问题啊测试问题啊测试问题啊测试问题啊测试问题啊测试问题啊</div>
     </div>
-  </div>  
+  </div>
+  <!-- <div class="c_draggable" v-draggable="['c_draggable__header', draggableCallback]">
+    <div class="c_draggable__header">拖拽块头部</div>
+    <div class="c_draggable__body">拖拽块内容</div>
+  </div> -->
+
+  <el-input v-model="inputValue" v-emoji />
 </template>
 <script lang="ts">
-import { toRefs } from 'vue'
+import { toRefs, ref, onMounted } from 'vue'
 import { goodsList } from './model/goodsModel'
 export default {
   setup() {
@@ -27,11 +33,19 @@ export default {
       console.log("handleDebounce")
     }
 
+    const draggableCallback = () => {
+      // console.log("draggableCallback")
+    }
+
+    const inputValue = ref('')
+
     return {
       ...toRefs(state),
       queryGoodsList,
       handleLongpress,
-      handleDebounce
+      handleDebounce,
+      draggableCallback,
+      inputValue
     }
   }
 }
@@ -42,5 +56,13 @@ export default {
     .water-marker-item{
       line-height: 300px;
     }
+  }
+  .c_draggable {
+    position: fixed;
+    bottom: 100px;
+    left: 0;
+    width: 200px;
+    height: 200px;
+    background-color: red;
   }
 </style>
