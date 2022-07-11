@@ -13,7 +13,7 @@
     <el-row type="flex" align="middle">
       <span 
         class="iconfont extend"
-        @click="$store.commit('base/handleShowCollapse')"
+        @click="$store.commit('base/SHOW_COLLAPSE')"
       >&#xe614;</span>
     </el-row>
     <el-menu-item index="1">Processing Center</el-menu-item>

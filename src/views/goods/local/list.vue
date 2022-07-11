@@ -17,6 +17,9 @@
   </div> -->
 
   <el-input v-model="inputValue" v-emoji />
+
+  <el-button type="primary" v-premission="['admin']">权限控制按钮1</el-button>
+  <el-button v-premission="['editor']">权限控制按钮2</el-button>
 </template>
 <script lang="ts">
 import { toRefs, ref, onMounted } from 'vue'

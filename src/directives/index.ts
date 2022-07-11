@@ -5,6 +5,7 @@ import throttle from './modules/throttle'
 import watermarker from './modules/watermarker'
 import draggable from './modules/draggable'
 import emoji from './modules/emoji'
+import premission from './modules/premission'
 
 // 创建自定义指令数组
 const directivesObj: any = {
@@ -14,7 +15,8 @@ const directivesObj: any = {
   throttle,
   watermarker,
   draggable,
-  emoji
+  emoji,
+  premission
 }
 
 const directives = {
